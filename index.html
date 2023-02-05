@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botões de Acessibilidade</title>
+    <style>
+        html {
+            font-size: 52.6%;
+        }
+        body {
+            font-size: 1.6rem;
+            transition: all .3s;
+        }
+
+        body.darkmode {
+            transition: all .3s;
+            background-color: #212529;
+        }
+
+        body.darkmode p,
+        body.darkmode ul li
+        {
+            color: #fff;
+        }
+        button {
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .buttons {
+            position: fixed;
+            right: 0;
+            top: 60%;
+            margin-top: calc(-32vh + 80px);
+            width: 30px;
+            margin-right: 10px;
+            background-color: #e59422cc;
+            border-radius: 15px;
+            padding: 0;
+        }
+
+        .buttons button:first-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.611);
+        }
+
+        .buttons button {
+            color: #fff;
+            padding-left: 7px;
+            /* padding-right: 9px; */
+            padding-top: 9px;
+            padding-bottom: 9px;
+            font-weight: bold;
+           
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button class="darkmode-test">
+            <img src="./contrast.png" alt="">
+        </button>
+        <button onClick="fonte('a');">A+</button> <!-- Botão + -->
+        <button onClick="fonte('n');" title="Normal">
+            <img src="./undo-button.png" alt="">
+        </button> <!-- Botão - -->
+        <button onClick="fonte('d');">A-</button> <!-- Botão - -->
+    </div>
+
+    <p class="acessibilidade">
+		Exemplo de texto com a class Acessibilidade;
+	</p>
+
+	<p class="acessibilidade">
+		Outro exemplo de texto com a class Acessibilidade;
+	</p>
+
+	<p>
+		Este não tem a class Acessibilidade; (Não deve ser afetado)
+	</p>
+
+	<ul class="acessibilidade">
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+	</ul>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/fonte.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+    const button = document.querySelectorAll('.darkmode-test');
+    
+    button.forEach(btn => {
+        btn.addEventListener('click', () => {
+            
+            document.body.classList.toggle('darkmode');
+        })
+    })
+
+    </script> 
+
+
+</body>
+</html>
